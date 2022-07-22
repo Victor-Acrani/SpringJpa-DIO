@@ -24,5 +24,5 @@ public class Matricula implements Serializable {
     @OneToOne
     @JoinColumn(name = "Aluno_id", referencedColumnName = "id")
     private Aluno aluno;
-    private LocalDate dataMatricula;
+    private LocalDate dataMatricula = LocalDate.now();
 }

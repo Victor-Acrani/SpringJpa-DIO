@@ -1,5 +1,6 @@
 package br.com.acrani.SpringJpaDIO.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,10 +22,13 @@ public class AvaliacaoFisica implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "Aluno_id", referencedColumnName = "id")
     private Aluno aluno;
-    private LocalDate dataAvaliacao;
+    private LocalDate dataAvaliacao = LocalDate.now();
+    @Column(name = "peso_atual")
     private Double peso;
+    @Column(name = "altura_atual")
     private Double altura;
 }
