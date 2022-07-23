@@ -38,7 +38,7 @@ public class AlunoController {
     public ResponseEntity<Aluno> save(@RequestBody @Valid AlunoDtoRequest alunoDtoRequest){
         Aluno save = alunoService.save(alunoDtoRequest);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id").buildAndExpand(save.getId()).toUri();
+                .path("/{id}").buildAndExpand(save.getId()).toUri();
         return ResponseEntity.created(uri).body(save);
     }
 

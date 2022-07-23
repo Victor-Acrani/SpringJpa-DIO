@@ -16,6 +16,7 @@ public interface IMatriculaService {
 
     /**
      * Retorna todos as matrículas salvas
+     *
      * @return - todas as matrículas salvas
      */
     List<Matricula> findAll();
