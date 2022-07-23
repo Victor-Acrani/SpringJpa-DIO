@@ -3,6 +3,7 @@ package br.com.acrani.SpringJpaDIO.controllers;
 import br.com.acrani.SpringJpaDIO.dtos.AlunoDtoRequest;
 import br.com.acrani.SpringJpaDIO.dtos.AlunoDtoUpdate;
 import br.com.acrani.SpringJpaDIO.models.Aluno;
+import br.com.acrani.SpringJpaDIO.models.AvaliacaoFisica;
 import br.com.acrani.SpringJpaDIO.services.AlunoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,12 @@ public class AlunoController {
     public ResponseEntity<Aluno> findById(@PathVariable Long id){
         Aluno byId = alunoService.findById(id);
         return ResponseEntity.ok().body(byId);
+    }
+
+    @GetMapping("/avaliacoes/{id}")
+    public ResponseEntity<List<AvaliacaoFisica>> findAllAvalicoesFisicas(@PathVariable Long id){
+        List<AvaliacaoFisica> allAvaliacoesFisica = alunoService.findAllAvaliacoesFisica(id);
+        return ResponseEntity.ok().body(allAvaliacoesFisica);
     }
 
     @PostMapping

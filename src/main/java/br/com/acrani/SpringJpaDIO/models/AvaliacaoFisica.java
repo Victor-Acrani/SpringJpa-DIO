@@ -22,7 +22,6 @@ public class AvaliacaoFisica implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "Aluno_id", referencedColumnName = "id")
     private Aluno aluno;

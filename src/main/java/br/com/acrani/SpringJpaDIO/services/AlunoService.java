@@ -3,6 +3,7 @@ package br.com.acrani.SpringJpaDIO.services;
 import br.com.acrani.SpringJpaDIO.dtos.AlunoDtoRequest;
 import br.com.acrani.SpringJpaDIO.dtos.AlunoDtoUpdate;
 import br.com.acrani.SpringJpaDIO.models.Aluno;
+import br.com.acrani.SpringJpaDIO.models.AvaliacaoFisica;
 import br.com.acrani.SpringJpaDIO.repositories.AlunoRepository;
 import br.com.acrani.SpringJpaDIO.services.exceptions.DataBaseException;
 import br.com.acrani.SpringJpaDIO.services.exceptions.DuplicatedDataException;
@@ -67,6 +68,12 @@ public class AlunoService implements IAlunoService {
         } catch (DataIntegrityViolationException e) {
             throw new DataBaseException(e.getMessage());
         }
+    }
+
+    @Override
+    public List<AvaliacaoFisica> findAllAvaliacoesFisica(Long id) {
+        Aluno aluno = findById(id);
+        return aluno.getAvaliacoesFisica();
     }
 
 }

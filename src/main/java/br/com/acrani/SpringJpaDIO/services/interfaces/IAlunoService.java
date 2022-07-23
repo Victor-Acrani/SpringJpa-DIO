@@ -3,6 +3,7 @@ package br.com.acrani.SpringJpaDIO.services.interfaces;
 import br.com.acrani.SpringJpaDIO.dtos.AlunoDtoRequest;
 import br.com.acrani.SpringJpaDIO.dtos.AlunoDtoUpdate;
 import br.com.acrani.SpringJpaDIO.models.Aluno;
+import br.com.acrani.SpringJpaDIO.models.AvaliacaoFisica;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -42,5 +43,12 @@ public interface IAlunoService {
      * @param id - id do aluno a ser deletado
      */
     void delete(Long id);
+
+    /**
+     * Retorna todas as avaliações físicas do aluno
+     * @param id - id do aluno
+     * @return - Retorna todas as avaliações físicas
+     */
+    List<AvaliacaoFisica> findAllAvaliacoesFisica(Long id);
 
 }

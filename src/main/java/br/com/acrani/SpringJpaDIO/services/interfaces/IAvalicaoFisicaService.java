@@ -1,11 +1,12 @@
 package br.com.acrani.SpringJpaDIO.services.interfaces;
 
 import br.com.acrani.SpringJpaDIO.dtos.AvaliacaoFisicaDtoRequest;
+import br.com.acrani.SpringJpaDIO.dtos.AvaliacaoFisicaDtoUpdate;
 import br.com.acrani.SpringJpaDIO.models.AvaliacaoFisica;
 
 import java.util.List;
 
-public interface IAvalicacaoFisicaService {
+public interface IAvalicaoFisicaService {
 
     /**
      * Salva avaliação física no banco de dados
@@ -25,15 +26,15 @@ public interface IAvalicacaoFisicaService {
      * @param id - Id da avaliação física a ser encontrada
      * @return - avaliação física com dados atualizados
      */
-    AvaliacaoFisica findByID(Long id);
+    AvaliacaoFisica findById(Long id);
 
     /**
      * Atualiza avaliação física pelo id
-     * @param avaliacaoFisicaDtoRequest - Dto com os dados para atualizar
+     * @param avaliacaoFisicaDtoUpdate - Dto com os dados para atualizar
      * @param id - Id da avaliação física a ser atualiazada
      * @return - avaliação física com dados atualizados
      */
-    AvaliacaoFisica update(AvaliacaoFisicaDtoRequest avaliacaoFisicaDtoRequest, Long id);
+    AvaliacaoFisica update(Long id, AvaliacaoFisicaDtoUpdate avaliacaoFisicaDtoUpdate);
 
     /**
      * Deleta avaliação física pelo id
